@@ -1,0 +1,30 @@
+def generate_outfit(weather_data, wardrobe_items, user_preferences):
+    temperature = weather_data['temperature']
+    precipitation = weather_data['precipitation']
+    season = weather_data['season']
+
+    suitable_outfits = []
+
+    for item in wardrobe_items:
+        if item.is_suitable(temperature, precipitation, season, user_preferences):
+            suitable_outfits.append(item)
+
+    return suitable_outfits
+
+# Example usage
+weather_data = {
+    'temperature': 20,  # In degrees Celsius
+    'precipitation': 'rain',  # Can be 'rain', 'snow', 'clear', etc.
+    'season': 'spring'  # Can be 'spring', 'summer', 'autumn', 'winter'
+}
+
+wardrobe_items = [...]  # List of clothing items
+
+user_preferences = {
+    'comfortable': True,
+    'casual': True,
+    'color': 'blue'
+}
+
+outfits = generate_outfit(weather_data, wardrobe_items, user_preferences)
+
